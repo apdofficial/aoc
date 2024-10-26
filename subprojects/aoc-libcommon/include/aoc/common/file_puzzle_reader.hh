@@ -1,6 +1,5 @@
 #pragma once
 
-#include <util.h>
 #include <aoc/common/puzzle_reader.hh>
 #include <fstream>
 #include <string_view>
