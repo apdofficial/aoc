@@ -1,0 +1,13 @@
+__pycache__
+prefix/
+
+# Editor/IDE spcific
+.vscode/
+
+# clangd integration
+.cache/*
+
+subprojects/*/
+!subprojects/aoc-libcommon
+!subprojects/aoc-2022
+!subprojects/aoc-2024
