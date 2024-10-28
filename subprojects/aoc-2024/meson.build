@@ -10,7 +10,7 @@ cpp_args = [
   '-DPROJECT_VERSION="' + meson.project_version() + '"',
 ]
 
-aoc_libcommon_proj = subproject('aoc-libcommon')
+aoc_libcommon_proj = subproject('aoc-common')
 aoc_libcommon_dep = aoc_libcommon_proj.get_variable('aoc_libcommon_dep')
 
 fmt = subproject('fmt', default_options: 'default_library=static')
