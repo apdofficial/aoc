@@ -1,5 +1,6 @@
 #include <aoc/2022/day01.hh>
 #include <aoc/2022/day02.hh>
+#include <aoc/2022/day03.hh>
 #include <aoc/common/file_puzzle_reader.hh>
 #include <aoc/common/puzzle_reader.hh>
 
@@ -19,6 +20,9 @@ std::pair<int, int> SolveDay(unsigned day, aoc::PuzzleReader& reader) {
     return {day_solver.SolvePart1(), day_solver.SolvePart2()};
   } else if (day == 2) {
     aoc::aoc2022::Day2 day_solver{reader.ReadPairs()};
+    return {day_solver.SolvePart1(), day_solver.SolvePart2()};
+  } else if (day == 3) {
+    aoc::aoc2022::Day3 day_solver{reader.ReadLines()};
     return {day_solver.SolvePart1(), day_solver.SolvePart2()};
   } else {
     throw std::invalid_argument(fmt::format("Unsupported day {}", day));

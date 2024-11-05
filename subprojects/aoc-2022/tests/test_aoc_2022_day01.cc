@@ -2,8 +2,9 @@
 
 #include <aoc/2022/day01.hh>
 #include <aoc/common/file_puzzle_reader.hh>
+#include <aoc/common/puzzle_reader.hh>
 
-std::vector<std::string> const kShortInput{
+aoc::PuzzleReader::Lines const kShortInput{
     "1000", "2000", "3000", "",     "4000", "", "5000",
     "6000", "",     "7000", "8000", "9000", "", "10000"};
 
