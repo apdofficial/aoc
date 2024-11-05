@@ -1,49 +1,15 @@
-#include <algorithm>
-#include <aoc/2024/day01.hh>
-#include <functional>
-#include <numeric>
+#include <aoc/2024/day01.h>
 
 namespace aoc::aoc2024 {
 
-Day1::Day1(PuzzleReader& reader) : lines_(reader.ReadLines()) {}
-
 Day1::Day1(PuzzleReader::Lines const& lines) : lines_(lines) {}
 
-int Day1::SolvePart1() {
-  int max = 0;
-  int acc = 0;
-  for (auto const& line : lines_) {
-    try {
-      acc += std::stoi(line);
-    } catch (std::exception const& ex) {
-      if (acc > max) {
-        max = acc;
-      }
-      acc = 0;
-    }
-  }
-  if (acc > max) {
-    max = acc;
-  }
-  return max;
+auto Day1::SolvePart1() -> Puzzle::Part1 {
+  return -1;
 }
 
-int Day1::SolvePart2() {
-  std::vector<int> elves{};
-  int acc = 0;
-  for (auto const& line : lines_) {
-    try {
-      acc += std::stoi(line);
-    } catch (std::exception const& ex) {
-      elves.push_back(acc);
-      acc = 0;
-    }
-  }
-  if (acc > 0) {
-    elves.push_back(acc);
-  }
-  std::sort(elves.begin(), elves.end());
-  return std::accumulate(elves.rbegin(), elves.rbegin() + 3, 0, std::plus<>());
+auto Day1::SolvePart2() -> Puzzle::Part2 {
+  return -1;
 }
 
 }  // namespace aoc::aoc2022

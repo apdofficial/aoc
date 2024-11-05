@@ -18,6 +18,7 @@ fmt_dep = fmt.get_variable('fmt_dep')
 
 aoc_2022_dep = declare_dependency(
   sources: [
+    'src/aoc/2022/day_factory.cc',
     'src/aoc/2022/day01.cc',
     'src/aoc/2022/day02.cc',
     'src/aoc/2022/day03.cc',

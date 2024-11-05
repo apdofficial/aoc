@@ -1,6 +1,6 @@
-aoc_2024_tests = ['test_aoc_2024_day01']
+aoc_2022_tests = []
 
-foreach name : aoc_2024_tests
+foreach name : aoc_2022_tests
   test(
     name,
     executable(

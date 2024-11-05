@@ -1,43 +1,25 @@
-#include <aoc/2022/day01.hh>
-#include <aoc/2022/day02.hh>
-#include <aoc/common/file_puzzle_reader.hh>
-#include <aoc/common/puzzle_reader.hh>
+#include <aoc/2022/day_factory.h>
+#include <aoc/common/puzzle/puzzle.h>
+#include <aoc/common/puzzle/puzzle_file_reader.h>
 
 #include <fmt/format.h>
 #include <boost/program_options.hpp>
 
 #include <iostream>
-#include <optional>
 #include <string>
-#include <utility>
+#include <variant>
 
-namespace {
-
-std::pair<int, int> SolveDay(unsigned day, aoc::PuzzleReader& reader) {
-  if (day == 1) {
-    aoc::aoc2022::Day1 day_solver{reader.ReadLines()};
-    return {day_solver.SolvePart1(), day_solver.SolvePart2()};
-  } else if (day == 2) {
-    aoc::aoc2022::Day2 day_solver{reader.ReadPairs()};
-    return {day_solver.SolvePart1(), day_solver.SolvePart2()};
-  } else {
-    throw std::invalid_argument(fmt::format("Unsupported day {}", day));
-  }
-}
-
-}  // namespace
-
-int main(int ac, char* av[]) {
+int main(int argc, char* argv[]) {
   namespace po = boost::program_options;
   try {
     po::options_description desc("aoc2022");
     desc.add_options()("help,h", "show help");
     desc.add_options()("version,v", "show version");
-    desc.add_options()("day,d", po::value<unsigned>(), "day to solve {1...2}");
+    desc.add_options()("day,d", po::value<unsigned>(), "day to solve");
     desc.add_options()("input-file", po::value<std::string>(),
                        "puzzle input file");
     po::variables_map vm{};
-    po::store(po::parse_command_line(ac, av, desc), vm);
+    po::store(po::parse_command_line(argc, argv, desc), vm);
     po::notify(vm);
     if (vm.count("help")) {
       desc.print(std::cout);
@@ -49,26 +31,27 @@ int main(int ac, char* av[]) {
     }
     if (!vm.count("day")) {
       fmt::println(stderr,
-                   "Error: No day has been selected. Use --help for help.");
+                   "Error: No day has been selected. Use --help for usage.");
       return 1;
     }
-    auto const day{vm["day"].as<unsigned>()};
-    fmt::println("Day: {:02}\n", day);
-
-    std::optional<std::pair<int, int>> solution{};
-    if (vm.count("input-file")) {
-      aoc::FilePuzzleReader reader{vm["input-file"].as<std::string>()};
-      solution = SolveDay(day, reader);
-    }
-
-    if (!solution.has_value()) {
+    if (!vm.count("input-file")) {
       fmt::println(stderr,
-                   "Error: No input has been provided. Use --help for help.");
+                   "Error: No input has been provided. Use --help for usage.");
       return 1;
     }
 
-    fmt::println("Puzzle 1: {:>20}", solution->first);
-    fmt::println("Puzzle 2: {:>20}", solution->second);
+    auto const day_nr{vm["day"].as<unsigned>()};
+    fmt::println("Day: {:02}\n", day_nr);
+
+    aoc::PuzzleFileReader reader{vm["input-file"].as<std::string>()};
+    auto day{aoc::aoc2022::DayFactory(day_nr, reader)};
+    aoc::Puzzle puzzle{day->SolvePart1(), day->SolvePart2()};
+
+    std::visit([](const auto& k) { fmt::println("Puzzle 1: {}", k); },
+               puzzle.part1);
+    std::visit([](const auto& k) { fmt::println("Puzzle 2: {}", k); },
+               puzzle.part2);
+
   } catch (std::exception& e) {
     fmt::println(stderr, "Error: {}", e.what());
     return 1;

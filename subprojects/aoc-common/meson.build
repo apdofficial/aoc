@@ -9,7 +9,11 @@ inc = include_directories('include')
 
 aoc_common = static_library(
   meson.project_name(),
-  sources: ['src/aoc/common/file_puzzle_reader.cc'],
+  sources: [
+    'src/aoc/common/puzzle/puzzle_file_reader.cc',
+    'src/aoc/common/range/range.cc',
+    'src/aoc/common/range/rangeset.cc',
+  ],
   include_directories: inc,
 )
 

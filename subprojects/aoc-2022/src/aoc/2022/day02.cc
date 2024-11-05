@@ -1,11 +1,15 @@
-#include <aoc/2022/day02.hh>
+#include <aoc/2022/day02.h>
+
+#include <algorithm>
 #include <format>
+#include <iterator>
 #include <numeric>
+#include <sstream>
 #include <stdexcept>
 
 namespace {
 
-int CalculateScore(aoc::aoc2022::Day2::Round const& round) {
+auto CalculateScore(aoc::aoc2022::Day2::Round const& round) -> int {
   auto const p1 =
       static_cast<aoc::aoc2022::Day2::OptionType>(round.first) - 'A' + 1;
   auto const p2 =
@@ -23,9 +27,9 @@ int CalculateScore(aoc::aoc2022::Day2::Round const& round) {
   }
 }
 
-aoc::aoc2022::Day2::Player2 CalculateMove(
-    aoc::aoc2022::Day2::Player1 const& player1,
-    aoc::aoc2022::Day2::Strategy const& strategy) {
+auto CalculateMove(aoc::aoc2022::Day2::Player1 const& player1,
+                   aoc::aoc2022::Day2::Strategy const& strategy)
+    -> aoc::aoc2022::Day2::Player2 {
   using namespace aoc::aoc2022;
   switch (strategy) {
     case Day2::Strategy::DRAW:
@@ -57,19 +61,24 @@ aoc::aoc2022::Day2::Player2 CalculateMove(
 
 namespace aoc::aoc2022 {
 
-Day2::Day2(PuzzleReader::Pairs const& pairs) {
-  for (auto const& pair : pairs) {
-    rounds_.emplace_back(Player1(pair.first), Player2(pair.second));
-  }
+Day2::Day2(PuzzleReader::Lines const& lines) {
+  auto line_to_round = [](std::string const& line) -> Round {
+    std::istringstream iss{line};
+    char p1{};
+    char p2{};
+    iss >> p1 >> p2;
+    return {Player1(p1), Player2(p2)};
+  };
+  std::ranges::transform(lines, std::back_inserter(rounds_), line_to_round);
 }
 
-int Day2::SolvePart1() {
+auto Day2::SolvePart1() -> Puzzle::Part1 {
   return std::accumulate(
       rounds_.begin(), rounds_.end(), 0,
       [](int acc, Round const& round) { return acc + CalculateScore(round); });
 }
 
-int Day2::SolvePart2() {
+auto Day2::SolvePart2() -> Puzzle::Part2 {
   auto acc_rounds = [](int acc, Round const& round) {
     Player1 const player1{round.first};
     Strategy const strategy{static_cast<OptionType>(round.second)};
