@@ -1,4 +1,5 @@
 #include <aoc/2022/day02.hh>
+
 #include <format>
 #include <numeric>
 #include <stdexcept>

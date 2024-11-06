@@ -1,5 +1,6 @@
-#include <algorithm>
 #include <aoc/2022/day01.hh>
+
+#include <algorithm>
 #include <functional>
 #include <numeric>
 #include <span>
@@ -31,7 +32,7 @@ namespace aoc::aoc2022 {
 Day1::Day1(PuzzleReader::Lines const& lines) : lines_(lines) {}
 
 int Day1::SolvePart1() {
-  return ::CalculateAndSortCalories(lines_).front();
+  return CalculateAndSortCalories(lines_).front();
 }
 
 int Day1::SolvePart2() {
