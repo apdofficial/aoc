@@ -2,6 +2,7 @@ aoc_2022_tests = [
   'test_aoc_2022_day01',
   'test_aoc_2022_day02',
   'test_aoc_2022_day03',
+  'test_aoc_2022_day04',
 ]
 
 foreach name : aoc_2022_tests
