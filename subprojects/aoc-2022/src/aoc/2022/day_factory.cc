@@ -1,6 +1,7 @@
 #include <aoc/2022/day01.h>
 #include <aoc/2022/day02.h>
 #include <aoc/2022/day03.h>
+#include <aoc/2022/day04.h>
 #include <aoc/2022/day_factory.h>
 
 #include <format>
@@ -16,6 +17,8 @@ std::unique_ptr<aoc::IDay> DayFactory(unsigned day, aoc::PuzzleReader& reader) {
       return std::make_unique<Day2>(reader.ReadLines());
     case 3:
       return std::make_unique<Day3>(reader.ReadLines());
+    case 4:
+      return std::make_unique<Day4>(reader.ReadLines());
     default:
       throw std::invalid_argument(std::format("Unsupported day {}", day));
   }
