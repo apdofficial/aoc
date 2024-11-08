@@ -1,7 +1,7 @@
 #pragma once
 
-#include <aoc/common/day.hh>
-#include <aoc/common/puzzle_reader.hh>
+#include <aoc/common/day.h>
+#include <aoc/common/puzzle/puzzle_reader.h>
 
 namespace aoc::aoc2022 {
 
@@ -28,10 +28,10 @@ struct Day2 : IDay {
   using Round = std::pair<Player1, Player2>;
   using Rounds = std::vector<Round>;
 
-  Day2(PuzzleReader::Pairs const&);
+  Day2(PuzzleReader::Lines const&);
 
-  [[nodiscard]] auto SolvePart1() -> int override;
-  [[nodiscard]] auto SolvePart2() -> int override;
+  [[nodiscard]] auto SolvePart1() -> Puzzle::Part1 override;
+  [[nodiscard]] auto SolvePart2() -> Puzzle::Part2 override;
 
  private:
   Rounds rounds_{};

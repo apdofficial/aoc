@@ -1,4 +1,4 @@
-#include <aoc/2022/day01.hh>
+#include <aoc/2022/day01.h>
 
 #include <algorithm>
 #include <functional>
@@ -7,7 +7,8 @@
 
 namespace {
 
-std::vector<int> CalculateAndSortCalories(std::span<std::string> puzzle_lines) {
+auto CalculateAndSortCalories(std::span<std::string> puzzle_lines)
+    -> std::vector<int> {
   std::vector<int> elf_calories{};
   int acc = 0;
   for (auto const& line : puzzle_lines) {
@@ -31,11 +32,11 @@ namespace aoc::aoc2022 {
 
 Day1::Day1(PuzzleReader::Lines const& lines) : lines_(lines) {}
 
-int Day1::SolvePart1() {
+auto Day1::SolvePart1() -> Puzzle::Part1 {
   return CalculateAndSortCalories(lines_).front();
 }
 
-int Day1::SolvePart2() {
+auto Day1::SolvePart2() -> Puzzle::Part2 {
   std::vector<int> elf_calories = CalculateAndSortCalories(lines_);
   return std::accumulate(elf_calories.begin(), elf_calories.begin() + 3, 0,
                          std::plus<>());

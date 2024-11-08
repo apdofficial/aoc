@@ -1,5 +1,4 @@
-#include <aoc/2022/day03.hh>
-#include <aoc/common/puzzle_reader.hh>
+#include <aoc/2022/day03.h>
 
 #include <algorithm>
 #include <cctype>
@@ -8,11 +7,11 @@
 
 namespace {
 
-int CalculatePriority(char c) {
+auto CalculatePriority(char c) -> int {
   return std::isupper(c) ? c - 'A' + 27 : c - 'a' + 1;
 }
 
-std::string FindMatches(std::string const& s1, std::string const& s2) {
+auto FindMatches(std::string const& s1, std::string const& s2) -> std::string {
   std::string matches;
   for (auto const& item : s1) {
     auto const found = std::find(matches.begin(), matches.end(), item);
@@ -29,7 +28,7 @@ namespace aoc::aoc2022 {
 
 Day3::Day3(PuzzleReader::Lines const& lines) : lines_(lines) {}
 
-int Day3::SolvePart1() {
+auto Day3::SolvePart1() -> Puzzle::Part1 {
   auto acc_rucksack = [](auto acc, std::string const& rucksack) {
     auto const comp1 = rucksack.substr(0, rucksack.size() / 2);
     auto const comp2 = rucksack.substr(rucksack.size() / 2, rucksack.size());
@@ -41,7 +40,7 @@ int Day3::SolvePart1() {
   return std::accumulate(lines_.begin(), lines_.end(), 0, acc_rucksack);
 }
 
-int Day3::SolvePart2() {
+auto Day3::SolvePart2() -> Puzzle::Part2 {
   int acc{};
   for (size_t i{}; i + 3 <= lines_.size(); i += 3) {
     auto const matches =
