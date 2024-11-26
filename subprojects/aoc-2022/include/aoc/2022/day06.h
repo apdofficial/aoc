@@ -5,7 +5,8 @@
 
 namespace aoc::aoc2022 {
 
-struct Day6 : IDay {
+class Day6 : public IDay {
+ public:
   Day6(PuzzleReader::Lines const&) = delete;
   Day6(PuzzleReader::Line const&);
 
@@ -13,7 +14,7 @@ struct Day6 : IDay {
   [[nodiscard]] auto SolvePart2() -> Puzzle::Part2 override;
 
  private:
-    PuzzleReader::Line line_{};
+  PuzzleReader::Line line_{};
 };
 
 }  // namespace aoc::aoc2022

@@ -5,7 +5,8 @@
 
 namespace aoc::aoc2022 {
 
-struct Day2 : IDay {
+class Day2 : public IDay {
+ public:
   using OptionType = char;
   enum class Player1 : OptionType {
     ROCK = 'A',

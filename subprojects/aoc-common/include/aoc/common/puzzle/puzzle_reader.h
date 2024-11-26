@@ -5,7 +5,8 @@
 
 namespace aoc {
 
-struct PuzzleReader {
+class PuzzleReader {
+ public:
   using Line = std::string;
   using Lines = std::vector<Line>;
 

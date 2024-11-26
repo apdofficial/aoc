@@ -7,7 +7,8 @@
 
 namespace aoc::aoc2022 {
 
-struct Day5 : IDay {
+class Day5 : public IDay {
+ public:
   using Stack = std::vector<char>;
   using Stacks = std::vector<Stack>;
   using StackId = int;

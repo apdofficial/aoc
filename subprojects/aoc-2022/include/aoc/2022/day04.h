@@ -5,7 +5,8 @@
 
 namespace aoc::aoc2022 {
 
-struct Day4 : IDay {
+class Day4 : public IDay {
+ public:
   Day4(PuzzleReader::Lines const&);
 
   [[nodiscard]] auto SolvePart1() -> Puzzle::Part1 override;

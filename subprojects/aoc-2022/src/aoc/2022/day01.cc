@@ -37,7 +37,7 @@ auto Day1::SolvePart1() -> Puzzle::Part1 {
 }
 
 auto Day1::SolvePart2() -> Puzzle::Part2 {
-  std::vector<int> elf_calories = CalculateAndSortCalories(lines_);
+  auto elf_calories = CalculateAndSortCalories(lines_);
   return std::accumulate(elf_calories.begin(), elf_calories.begin() + 3, 0,
                          std::plus<>());
 }

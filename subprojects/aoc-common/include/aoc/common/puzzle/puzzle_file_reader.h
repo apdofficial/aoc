@@ -7,7 +7,8 @@
 
 namespace aoc {
 
-struct PuzzleFileReader : public PuzzleReader {
+class PuzzleFileReader : public PuzzleReader {
+ public:
   PuzzleFileReader(std::string_view file_path);
 
   ~PuzzleFileReader() override;

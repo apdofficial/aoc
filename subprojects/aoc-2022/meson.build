@@ -25,6 +25,7 @@ aoc_2022_dep = declare_dependency(
     'src/aoc/2022/day04.cc',
     'src/aoc/2022/day05.cc',
     'src/aoc/2022/day06.cc',
+    'src/aoc/2022/day07.cc',
   ],
   include_directories: include_directories('include'),
   dependencies: [
