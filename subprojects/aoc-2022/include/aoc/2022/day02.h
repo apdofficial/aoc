@@ -5,7 +5,8 @@
 
 namespace aoc::aoc2022 {
 
-struct Day2 : IDay {
+class Day2 : public IDay {
+ public:
   using OptionType = char;
   enum class Player1 : OptionType {
     ROCK = 'A',
@@ -28,7 +29,7 @@ struct Day2 : IDay {
   using Round = std::pair<Player1, Player2>;
   using Rounds = std::vector<Round>;
 
-  Day2(PuzzleReader::Lines const&);
+  Day2(IPuzzleReader::Lines const&);
 
   [[nodiscard]] auto SolvePart1() -> Puzzle::Part1 override;
   [[nodiscard]] auto SolvePart2() -> Puzzle::Part2 override;

@@ -1,6 +1,8 @@
-aoc_2022_tests = []
+aoc_2024_tests = [
+  'test_aoc_2024_day01',
+]
 
-foreach name : aoc_2022_tests
+foreach name : aoc_2024_tests
   test(
     name,
     executable(
@@ -9,6 +11,6 @@ foreach name : aoc_2022_tests
       cpp_args: cpp_args,
       dependencies: [dependency('catch2-with-main'), aoc_2024_dep],
     ),
-    suite: 'aoc_2024',
+    suite: 'aoc_2022',
   )
 endforeach

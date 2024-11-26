@@ -7,7 +7,7 @@
 using namespace aoc;
 
 // clang-format off
-PuzzleReader::Lines const kShortInput{
+IPuzzleReader::Lines const kShortInput{
   "A Y",
   "B X", 
   "C Z",

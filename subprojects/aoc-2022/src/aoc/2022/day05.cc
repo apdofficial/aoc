@@ -33,7 +33,7 @@ auto Parse(std::string const& line, aoc::aoc2022::Day5::Stacks& stacks) {
 
 namespace aoc::aoc2022 {
 
-Day5::Day5(PuzzleReader::Lines const& lines) {
+Day5::Day5(IPuzzleReader::Lines const& lines) {
   for (auto const& line : lines) {
     if (line.starts_with("move")) {
       commands_.emplace_back(Parse(line));

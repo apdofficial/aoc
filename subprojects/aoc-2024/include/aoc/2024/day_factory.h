@@ -5,7 +5,7 @@
 
 #include <memory>
 
-namespace aoc::aoc2022 {
+namespace aoc::aoc2024 {
 
 std::unique_ptr<aoc::IDay> DayFactory(unsigned day, aoc::IPuzzleReader* reader);
 

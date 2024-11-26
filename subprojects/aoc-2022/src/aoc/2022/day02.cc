@@ -61,7 +61,7 @@ auto CalculateMove(aoc::aoc2022::Day2::Player1 const& player1,
 
 namespace aoc::aoc2022 {
 
-Day2::Day2(PuzzleReader::Lines const& lines) {
+Day2::Day2(IPuzzleReader::Lines const& lines) {
   auto line_to_round = [](std::string const& line) -> Round {
     std::istringstream iss{line};
     char p1{};

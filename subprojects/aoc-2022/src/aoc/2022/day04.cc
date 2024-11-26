@@ -19,7 +19,7 @@ auto Parse(std::string const& line) -> std::pair<aoc::Range, aoc::Range> {
 }  // namespace
 namespace aoc::aoc2022 {
 
-Day4::Day4(PuzzleReader::Lines const& lines) : lines_(lines) {}
+Day4::Day4(IPuzzleReader::Lines const& lines) : lines_(lines) {}
 
 auto Day4::SolvePart1() -> Puzzle::Part1 {
   int count = std::ranges::count_if(lines_, [](std::string const& line) {

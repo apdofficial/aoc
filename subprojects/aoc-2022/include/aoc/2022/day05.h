@@ -7,7 +7,8 @@
 
 namespace aoc::aoc2022 {
 
-struct Day5 : IDay {
+class Day5 : public IDay {
+ public:
   using Stack = std::vector<char>;
   using Stacks = std::vector<Stack>;
   using StackId = int;
@@ -20,7 +21,7 @@ struct Day5 : IDay {
   };
   using Commands = std::vector<Command>;
 
-  Day5(PuzzleReader::Lines const&);
+  Day5(IPuzzleReader::Lines const&);
 
   [[nodiscard]] auto SolvePart1() -> Puzzle::Part1 override;
   [[nodiscard]] auto SolvePart2() -> Puzzle::Part2 override;
