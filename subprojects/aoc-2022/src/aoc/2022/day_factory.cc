@@ -11,23 +11,23 @@
 
 namespace aoc::aoc2022 {
 
-std::unique_ptr<aoc::IDay> DayFactory(unsigned day, aoc::PuzzleReader& reader) {
+std::unique_ptr<aoc::IDay> DayFactory(unsigned day, aoc::IPuzzleReader* reader) {
   using namespace aoc::aoc2022;
   switch (day) {
     case 1:
-      return std::make_unique<Day1>(reader.ReadLines());
+      return std::make_unique<Day1>(reader->ReadLines());
     case 2:
-      return std::make_unique<Day2>(reader.ReadLines());
+      return std::make_unique<Day2>(reader->ReadLines());
     case 3:
-      return std::make_unique<Day3>(reader.ReadLines());
+      return std::make_unique<Day3>(reader->ReadLines());
     case 4:
-      return std::make_unique<Day4>(reader.ReadLines());
+      return std::make_unique<Day4>(reader->ReadLines());
     case 5:
-      return std::make_unique<Day5>(reader.ReadLines());
+      return std::make_unique<Day5>(reader->ReadLines());
     case 6:
-      return std::make_unique<Day6>(reader.ReadLines().front());
+      return std::make_unique<Day6>(reader->ReadLines().front());
     case 7:
-      return std::make_unique<Day7>(reader.ReadLines());
+      return std::make_unique<Day7>(reader->ReadLines());
     default:
       throw std::invalid_argument(std::format("Unsupported day {}", day));
   }

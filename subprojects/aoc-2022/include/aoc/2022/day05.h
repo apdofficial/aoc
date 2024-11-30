@@ -21,7 +21,7 @@ class Day5 : public IDay {
   };
   using Commands = std::vector<Command>;
 
-  Day5(PuzzleReader::Lines const&);
+  Day5(IPuzzleReader::Lines const&);
 
   [[nodiscard]] auto SolvePart1() -> Puzzle::Part1 override;
   [[nodiscard]] auto SolvePart2() -> Puzzle::Part2 override;

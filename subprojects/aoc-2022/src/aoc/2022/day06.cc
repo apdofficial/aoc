@@ -24,7 +24,7 @@ auto StartOfMessageMarker(std::string_view line, size_t match_count) -> int {
 
 namespace aoc::aoc2022 {
 
-Day6::Day6(PuzzleReader::Line const& line) : line_{line} {}
+Day6::Day6(IPuzzleReader::Line const& line) : line_{line} {}
 
 auto Day6::SolvePart1() -> Puzzle::Part1 {
   return StartOfMessageMarker(line_, 4);

@@ -29,7 +29,6 @@ aoc_2022_dep = declare_dependency(
   ],
   include_directories: include_directories('include'),
   dependencies: [
-    dependency('boost', modules: ['program_options'], static: true),
     fmt_dep,
     aoc_common_dep,
   ],

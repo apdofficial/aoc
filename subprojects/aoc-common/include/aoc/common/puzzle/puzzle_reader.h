@@ -5,12 +5,12 @@
 
 namespace aoc {
 
-class PuzzleReader {
+class IPuzzleReader {
  public:
   using Line = std::string;
   using Lines = std::vector<Line>;
 
-  virtual ~PuzzleReader() = default;
+  virtual ~IPuzzleReader() = default;
 
   virtual auto ReadLines() -> Lines = 0;
 };

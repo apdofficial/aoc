@@ -30,7 +30,7 @@ auto CalculateAndSortCalories(std::span<std::string> puzzle_lines)
 
 namespace aoc::aoc2022 {
 
-Day1::Day1(PuzzleReader::Lines const& lines) : lines_(lines) {}
+Day1::Day1(IPuzzleReader::Lines const& lines) : lines_(lines) {}
 
 auto Day1::SolvePart1() -> Puzzle::Part1 {
   return CalculateAndSortCalories(lines_).front();

@@ -26,7 +26,7 @@ auto FindMatches(std::string const& s1, std::string const& s2) -> std::string {
 
 namespace aoc::aoc2022 {
 
-Day3::Day3(PuzzleReader::Lines const& lines) : lines_(lines) {}
+Day3::Day3(IPuzzleReader::Lines const& lines) : lines_(lines) {}
 
 auto Day3::SolvePart1() -> Puzzle::Part1 {
   auto acc_rucksack = [](auto acc, std::string const& rucksack) {

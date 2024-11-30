@@ -7,13 +7,13 @@ namespace aoc::aoc2022 {
 
 class Day1 : public IDay {
  public:
-  Day1(PuzzleReader::Lines const&);
+  Day1(IPuzzleReader::Lines const&);
 
   [[nodiscard]] auto SolvePart1() -> Puzzle::Part1 override;
   [[nodiscard]] auto SolvePart2() -> Puzzle::Part2 override;
 
  private:
-  PuzzleReader::Lines lines_{};
+  IPuzzleReader::Lines lines_{};
 };
 
 }  // namespace aoc::aoc2022

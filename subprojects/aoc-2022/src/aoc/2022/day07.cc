@@ -2,7 +2,7 @@
 
 namespace aoc::aoc2022 {
 
-Day7::Day7(PuzzleReader::Lines const& lines) : lines_{lines} {}
+Day7::Day7(IPuzzleReader::Lines const& lines) : lines_{lines} {}
 
 auto Day7::SolvePart1() -> Puzzle::Part1 {
   return -1;

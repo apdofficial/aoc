@@ -2,14 +2,15 @@
 
 #include <aoc/common/puzzle/puzzle_reader.h>
 
+#include <filesystem>
 #include <fstream>
 #include <string_view>
 
 namespace aoc {
 
-class PuzzleFileReader : public PuzzleReader {
+class PuzzleFileReader : public IPuzzleReader {
  public:
-  PuzzleFileReader(std::string_view file_path);
+  PuzzleFileReader(std::filesystem::path input);
 
   ~PuzzleFileReader() override;
 

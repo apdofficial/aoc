@@ -1,9 +1,10 @@
 #include <aoc/common/puzzle/puzzle_file_reader.h>
+#include <filesystem>
 
 namespace aoc {
 
-PuzzleFileReader::PuzzleFileReader(std::string_view file_path)
-    : file_(std::ifstream(file_path.data())) {
+PuzzleFileReader::PuzzleFileReader(std::filesystem::path input)
+    : file_(std::ifstream(input)) {
   if (!file_.is_open()) {
     throw std::runtime_error("Failed to open FilePuzzleReader.");
   }

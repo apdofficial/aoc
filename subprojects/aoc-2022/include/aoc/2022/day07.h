@@ -32,13 +32,13 @@ class Day7 : public IDay {
     Directory(std::string const& name, size_t size) : Inode(name, size){};
   };
 
-  Day7(PuzzleReader::Lines const&);
+  Day7(IPuzzleReader::Lines const&);
 
   [[nodiscard]] auto SolvePart1() -> Puzzle::Part1 override;
   [[nodiscard]] auto SolvePart2() -> Puzzle::Part2 override;
 
  private:
-  PuzzleReader::Lines lines_{};
+  IPuzzleReader::Lines lines_{};
 };
 
 }  // namespace aoc::aoc2022

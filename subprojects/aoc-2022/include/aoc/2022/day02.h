@@ -29,7 +29,7 @@ class Day2 : public IDay {
   using Round = std::pair<Player1, Player2>;
   using Rounds = std::vector<Round>;
 
-  Day2(PuzzleReader::Lines const&);
+  Day2(IPuzzleReader::Lines const&);
 
   [[nodiscard]] auto SolvePart1() -> Puzzle::Part1 override;
   [[nodiscard]] auto SolvePart2() -> Puzzle::Part2 override;
