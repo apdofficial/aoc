@@ -5,7 +5,8 @@
 
 namespace aoc {
 
-struct Puzzle {
+class Puzzle {
+ public:
   using NumberType = int;
   using TextType = std::string;
   using Part1 = std::variant<TextType, NumberType>;

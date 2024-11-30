@@ -5,15 +5,16 @@
 
 namespace aoc::aoc2022 {
 
-struct Day6 : IDay {
-  Day6(PuzzleReader::Lines const&) = delete;
-  Day6(PuzzleReader::Line const&);
+class Day6 : public IDay {
+ public:
+  Day6(IPuzzleReader::Lines const&) = delete;
+  Day6(IPuzzleReader::Line const&);
 
   [[nodiscard]] auto SolvePart1() -> Puzzle::Part1 override;
   [[nodiscard]] auto SolvePart2() -> Puzzle::Part2 override;
 
  private:
-    PuzzleReader::Line line_{};
+  IPuzzleReader::Line line_{};
 };
 
 }  // namespace aoc::aoc2022

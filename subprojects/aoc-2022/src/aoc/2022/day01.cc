@@ -30,14 +30,14 @@ auto CalculateAndSortCalories(std::span<std::string> puzzle_lines)
 
 namespace aoc::aoc2022 {
 
-Day1::Day1(PuzzleReader::Lines const& lines) : lines_(lines) {}
+Day1::Day1(IPuzzleReader::Lines const& lines) : lines_(lines) {}
 
 auto Day1::SolvePart1() -> Puzzle::Part1 {
   return CalculateAndSortCalories(lines_).front();
 }
 
 auto Day1::SolvePart2() -> Puzzle::Part2 {
-  std::vector<int> elf_calories = CalculateAndSortCalories(lines_);
+  auto elf_calories = CalculateAndSortCalories(lines_);
   return std::accumulate(elf_calories.begin(), elf_calories.begin() + 3, 0,
                          std::plus<>());
 }
