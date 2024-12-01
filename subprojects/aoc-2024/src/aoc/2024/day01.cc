@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <map>
 #include <sstream>
 
 namespace aoc::aoc2024 {
@@ -26,7 +27,18 @@ auto Day1::SolvePart1() -> Puzzle::Part1 {
 }
 
 auto Day1::SolvePart2() -> Puzzle::Part2 {
-  return -1;
+  std::map<int, int> cache{};
+  int similartity{};
+  for (size_t i{}; i < group_a_.size(); ++i) {
+    auto const id = group_a_[i];
+    if (cache.contains(id)) {
+      similartity += cache[id];
+      continue;
+    }
+    cache[id] = id * std::ranges::count(group_b_, id);
+    similartity += cache[id];
+  }
+  return similartity;
 }
 
 }  // namespace aoc::aoc2024
