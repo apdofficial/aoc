@@ -2,6 +2,7 @@
 
 #include <aoc/common/day.h>
 #include <aoc/common/puzzle/puzzle_reader.h>
+#include <vector>
 
 namespace aoc::aoc2024 {
 
@@ -12,7 +13,8 @@ struct Day1 : public IDay {
   [[nodiscard]] auto SolvePart2() -> Puzzle::Part2 override;
 
  private:
-  IPuzzleReader::Lines lines_;
+  std::vector<int> group_a_;
+  std::vector<int> group_b_;
 };
 
 }  // namespace aoc::aoc2024
