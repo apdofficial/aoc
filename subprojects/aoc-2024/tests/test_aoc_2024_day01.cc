@@ -9,13 +9,18 @@ using namespace aoc;
 
 // clang-format off
 IPuzzleReader::Lines const kShortInput{
-
+    "3   4",
+    "4   3",
+    "2   5",
+    "1   3",
+    "3   9",
+    "3   3",
 };
 // clang-format off 
 
 TEST_CASE("Day 01, part 1", "[2024-01-01]") {
   aoc2024::Day1 day{kShortInput};
-  REQUIRE(std::get<Puzzle::NumberType>(day.SolvePart1()) == 0);
+  REQUIRE(std::get<Puzzle::NumberType>(day.SolvePart1()) == 11);
 }
 
 TEST_CASE("Day 01, part 2", "[2024-01-02]") {
