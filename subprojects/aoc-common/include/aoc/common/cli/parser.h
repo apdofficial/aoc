@@ -1,6 +1,7 @@
 #pragma once
 
 #include <aoc/common/cli/cli_arguments.h>
+#include <functional>
 
 namespace aoc {
 

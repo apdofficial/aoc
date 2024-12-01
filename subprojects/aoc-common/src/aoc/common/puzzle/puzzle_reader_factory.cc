@@ -14,7 +14,7 @@ std::unique_ptr<aoc::IPuzzleReader> PuzzleReaderFactory(
         else if constexpr (std::is_same_v<T,
                                           aoc::CliArguments::InputNetworkToken>)
           throw std::invalid_argument(
-              "TODO: implement network cookie token acces over HTTP GET");
+              "TODO: implement network cookie token access over HTTP GET");
         else
           static_assert(false, "non-exhaustive visitor!");
       },
