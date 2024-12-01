@@ -2,7 +2,7 @@ project(
   'aoc-2022',
   'cpp',
   version: '1.0.0',
-  default_options: {'cpp_std': 'c++20', 'prefer_static': true}
+  default_options: {'cpp_std': 'c++23', 'prefer_static': true}
 )
 
 cpp_args = [

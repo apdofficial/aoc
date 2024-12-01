@@ -2,7 +2,7 @@ project(
   'aoc-common',
   'cpp',
   version: '0.1.0',
-  default_options: {'cpp_std': 'c++20', 'prefer_static': true},
+  default_options: {'cpp_std': 'c++23', 'prefer_static': true},
 )
 
 fmt = subproject('fmt', default_options: 'default_library=static')
