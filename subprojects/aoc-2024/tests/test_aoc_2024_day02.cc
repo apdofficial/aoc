@@ -25,5 +25,5 @@ TEST_CASE("Day 02, part 1", "[2024-02-01]") {
 
 TEST_CASE("Day 02, part 2", "[2024-02-02]") {
   aoc2024::Day2 day{kShortInput};
-  REQUIRE(std::get<Puzzle::NumberType>(day.SolvePart2()) == 0);
+  REQUIRE(std::get<Puzzle::NumberType>(day.SolvePart2()) == 4);
 }

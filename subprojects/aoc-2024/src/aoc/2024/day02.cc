@@ -4,6 +4,23 @@
 #include <ranges>
 #include <string>
 
+namespace {
+
+auto IsValid(std::vector<int> const& report) -> bool {
+  int tmp{*report.begin()};
+  int prev_diff{tmp - *std::next(report.begin())};
+  auto pred = [&tmp, &prev_diff](int x) {
+    auto const diff = tmp - x;
+    auto const is_valid =
+        !((diff ^ prev_diff) < 0) && std::abs(diff) >= 1 && std::abs(diff) <= 3;
+    prev_diff = diff;
+    tmp = x;
+    return is_valid;
+  };
+  return std::all_of(std::next(report.begin()), report.end(), pred);
+}
+}  // namespace
+
 namespace aoc::aoc2024 {
 
 Day2::Day2(IPuzzleReader::Lines const& lines) {
@@ -17,25 +34,23 @@ Day2::Day2(IPuzzleReader::Lines const& lines) {
 }
 
 auto Day2::SolvePart1() -> Puzzle::Part1 {
-  int count{};
-  for (auto const& report : reports_) {
-    int tmp{*report.begin()};
-    int prev_diff{tmp - *++report.begin()};
-    count += std::all_of(++report.begin(), report.end(), [&tmp, &prev_diff](int x){
-      auto const diff = tmp - x;
-      if ((diff ^ prev_diff) < 0) {
-        return false;
-      }
-      prev_diff = diff;
-      tmp = x;
-      return std::abs(diff) >= 1 && std::abs(diff) <= 3;
-    });
-  }
-  return count;
+  return std::ranges::fold_left(reports_, 0, [](int acc, auto const& report) {
+    return acc + IsValid(report);
+  });
 }
 
 auto Day2::SolvePart2() -> Puzzle::Part2 {
-  return -1;
+  auto pred = [](int acc, std::vector<int> const& report) {
+    for (int i{}; i < report.size(); ++i) {
+      auto report_cpy = report;
+      report_cpy.erase(report_cpy.begin() + i);
+      if (IsValid(report_cpy)) {
+        return acc + 1;
+      }
+    }
+    return acc;
+  };
+  return std::ranges::fold_left(reports_, 0, pred);
 }
 
 }  // namespace aoc::aoc2024
