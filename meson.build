@@ -6,7 +6,7 @@ project(
 )
 
 subprojects = [
-  'aoc-libcommon',
+  'aoc-common',
   'aoc-2022',
   'aoc-2024',
 ]

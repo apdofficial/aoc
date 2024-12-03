@@ -8,6 +8,8 @@ prefix/
 .cache/*
 
 subprojects/*/
-!subprojects/aoc-libcommon
+!subprojects/aoc-common
 !subprojects/aoc-2022
 !subprojects/aoc-2024
+
+data/

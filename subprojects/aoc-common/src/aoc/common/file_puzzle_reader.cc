@@ -6,8 +6,7 @@ namespace aoc {
 FilePuzzleReader::FilePuzzleReader(std::string_view file_path)
     : file_(std::ifstream(file_path.data())) {
   if (!file_.is_open()) {
-    throw std::runtime_error(
-        std::format("Failed to open FilePuzzleReader at path: {}", file_path));
+    throw std::runtime_error("Failed to open FilePuzzleReader.");
   }
 }
 
