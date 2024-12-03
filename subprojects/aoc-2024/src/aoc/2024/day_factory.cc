@@ -1,5 +1,6 @@
 #include <aoc/2024/day01.h>
 #include <aoc/2024/day02.h>
+#include <aoc/2024/day03.h>
 #include <aoc/2024/day_factory.h>
 
 #include <format>
@@ -13,6 +14,8 @@ std::unique_ptr<aoc::IDay> DayFactory(unsigned day, aoc::IPuzzleReader* reader) 
       return std::make_unique<Day1>(reader->ReadLines());
     case 2:
       return std::make_unique<Day2>(reader->ReadLines());
+    case 3:
+      return std::make_unique<Day3>(reader->ReadLines());
     default:
       throw std::invalid_argument(std::format("Unsupported day {}", day));
   }
