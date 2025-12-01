@@ -1,5 +1,6 @@
 #include <aoc/2022/day05.h>
 
+#include <algorithm>
 #include <iterator>
 #include <regex>
 #include <string>

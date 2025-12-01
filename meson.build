@@ -9,6 +9,7 @@ subprojects = [
   'aoc-common',
   'aoc-2022',
   'aoc-2024',
+  'aoc-2025',
 ]
 
 subproject_names = []
