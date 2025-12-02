@@ -1,0 +1,15 @@
+[binaries]
+c = '/opt/homebrew/opt/llvm/bin/clang'
+cpp = '/opt/homebrew/opt/llvm/bin/clang++'
+ar = '/opt/homebrew/opt/llvm/bin/llvm-ar'
+strip = '/opt/homebrew/opt/llvm/bin/llvm-strip'
+pkg-config = '/usr/bin/pkg-config'  # note the dash, not pkgconfig
+
+[host_machine]
+system = 'darwin'
+cpu_family = 'arm'  # 'x86_64' if Intel
+endian = 'little'
+
+[built-in options]
+c_args = ['-mmacosx-version-min=12.0']
+cpp_args = ['-mmacosx-version-min=12.0']
